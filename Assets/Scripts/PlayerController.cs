@@ -4,27 +4,24 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour{
+public class PlayerController : MonoBehaviour {
 	Vector2 moveAmount;
-	PlayerControlMap playerInput;
 	public float speed = 0.1f;
 	bool isMoving;
 
-	private void Awake()
-	{
+	private void Awake() {
 	
 	}
-	public void OnMove(InputAction.CallbackContext context)
-	{
+
+	public void OnMove(InputAction.CallbackContext context) {
 		moveAmount = context.ReadValue<Vector2>();
 	}
 
-	void Update()
-	{
+	void Update() {
 		move();
 	}
-	void move()
-	{
+
+	void move() {
 		transform.position += new Vector3(moveAmount.x, moveAmount.y) * speed;
 	}
 	// moveDirection = orientation.forward * CurrentMovementInput.y + orientation.right * CurrentMovementInput.x;
